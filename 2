@@ -1,0 +1,219 @@
+package testswing;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class TestSwing extends JFrame {
+    
+    JLabel lbl1, lbl2, lbl3, lbl4, lbl5, lbl6, lbl7, lbl8;
+    JTextField txt1;
+    JPasswordField psw;
+    JCheckBox cb1, cb2;
+    JRadioButton rb1, rb2;
+    ButtonGroup rbg;
+    JComboBox cx1;
+    JPanel p1, p2, p3;
+    JTabbedPane pn1;
+    JButton btn1, btn2;
+    
+    TestSwing(){
+        lbl1 = new JLabel("Email");
+        lbl1.setBounds(30,40,100,25);
+        add(lbl1);
+        
+        txt1 = new JTextField();
+        txt1.setBounds(70,40,200,25);
+        add(txt1);
+        
+        lbl2 = new JLabel("Password");
+        lbl2.setBounds(30,70,100,25);
+        add(lbl2);
+        
+        psw = new JPasswordField();
+        psw.setBounds(100,70,170,25);
+        add(psw);
+        
+        lbl3 = new JLabel("Education");
+        lbl3.setBounds(30,100,100,25);
+        add(lbl3);
+        
+        cb1 = new JCheckBox("PT3");
+        cb1.setBounds(100,100,50,25);
+        add(cb1);
+        
+        cb2 = new JCheckBox("SPM");
+        cb2.setBounds(160,100,50,25);
+        add(cb2);
+        
+        lbl4 = new JLabel("Gender");
+        lbl4.setBounds(30,130,100,25);
+        add(lbl4);
+        
+        rb1 = new JRadioButton("MALE");
+        rb1.setBounds(100,130,70,25);
+        add(rb1);
+        
+        rb2 = new JRadioButton("FEMALE");
+        rb2.setBounds(170,130,80,25);
+        add(rb2);
+        
+        rbg = new ButtonGroup();
+        rbg.add(rb1);
+        rbg.add(rb2);
+       
+        lbl5 = new JLabel("Department");
+        lbl5.setBounds(30,160,100,25);
+        add(lbl5);
+        
+        String addItem[]= {"JP","JTMK","JKM","JKE"};
+        cx1 = new JComboBox(addItem);
+        cx1.setBounds(130,160,70,25);
+        add(cx1);
+        
+        p1 = new JPanel();
+        p1.setBounds(30,200,230,100);
+        p1.setBorder(BorderFactory.createTitledBorder("TITLE"));
+        p1.setLayout(null);
+        add(p1);
+        
+        btn2.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent m) {
+               TestSwing ts = new TestSwing();
+               TestSwing2 ts2 = new TestSwing2();
+               
+               ts.setVisible(false);
+               ts2.setVisible(true);
+               
+            }
+        });
+        
+        btn1 = new JButton("SUBMIT");
+        btn1.setBounds(20,30,100,25);
+        p1.add(btn1);
+        
+        btn2 = new JButton("EXIT");
+        btn2.setBounds(130,30,80,25);
+        p1.add(btn2);
+        
+        p2 = new JPanel();
+        lbl6 = new JLabel("Panel 2");
+        p2.add(lbl6);
+        
+        p3 = new JPanel();
+        lbl7 = new JLabel("Panel 3");
+        p3.add(lbl7);
+        
+        pn1 = new JTabbedPane();
+        pn1.setBounds(30, 200, 330, 200);
+        pn1.add("Button",p1);
+        pn1.add("For Panel 2",p2);
+        pn1.add("For Panel 3",p3);
+        
+        add(pn1);
+        
+        btn1 = new JButton("Submit");
+        btn1.setBounds(30, 20, 90, 30);
+        
+        btn1.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+//            JOptionPane.showMessageDialog(null, "Successfull Submit");
+            String popo = JOptionPane.showInputDialog("Insert Your Name");
+            }
+        });        
+        setLayout(null);
+        setVisible(true);
+        setSize(400,600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public static void main(String[] args) {
+        TestSwing shw = new TestSwing();
+    }
+    
+}
+
+
+
+package javaapplication1;
+
+import javax.swing.*;
+
+public class JavaApplication1 {
+    JFrame f;
+    JLabel lbl1, lbl2, lbl3, lbl4, lbl5;
+    JTextField txt1, txt2;
+    JComboBox<String> cb;
+    JTextArea ta;
+    JButton btnAdd, btnReset, btnViewAll;
+
+    JavaApplication1() {
+        f = new JFrame();
+        f.setLayout(null); 
+
+        lbl1 = new JLabel("ORDER DETAILS");
+        lbl1.setBounds(20, 10, 200, 50);
+
+        lbl2 = new JLabel("CUSTOMER NAME");
+        lbl2.setBounds(20, 60, 200, 20);
+
+        txt1 = new JTextField();
+        txt1.setBounds(150, 60, 120, 25);
+
+        lbl3 = new JLabel("MENU");
+        lbl3.setBounds(20, 90, 200, 20);
+
+        cb = new JComboBox<>();
+        cb.addItem("Chicken Burger");
+        cb.addItem("Beef Burger");
+        cb.addItem("Lamb Burger");
+        cb.setBounds(150, 90, 120, 25);
+
+        lbl4 = new JLabel("QUANTITY");
+        lbl4.setBounds(20, 120, 100, 20);
+
+        txt2 = new JTextField();
+        txt2.setBounds(150, 120, 50, 25);
+
+        btnAdd = new JButton("Add");
+        btnAdd.setBounds(20, 160, 80, 25);
+
+        btnReset = new JButton("Reset");
+        btnReset.setBounds(110, 160, 80, 25);
+
+        btnViewAll = new JButton("View All");
+        btnViewAll.setBounds(200, 160, 80, 25);
+        
+        lbl5 = new JLabel("ALL ORDER DETAILS");
+        lbl5.setBounds(20, 230, 150, 20);
+        
+        ta = new JTextArea();
+        ta.setBounds(20, 330, 550, 300);
+
+       
+
+        f.add(lbl1);
+        f.add(lbl2);
+        f.add(txt1);
+        f.add(lbl3);
+        f.add(cb);
+        f.add(lbl4);
+        f.add(txt2);
+        f.add(btnAdd);
+        f.add(btnReset);
+        f.add(btnViewAll);
+        f.add(lbl5);
+        f.add(ta); 
+
+        f.setSize(600, 600); 
+        f.setVisible(true);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public static void main(String[] args) {
+        JavaApplication1 shw = new JavaApplication1();
+    }
+}
